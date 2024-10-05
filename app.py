@@ -20,4 +20,6 @@ if openai_api_key:
     display_chat_history()
 
     # Handle user input
-    handle_user_input(openai_api_key, query_graph, chain)
+    handle_user_input(
+        openai_api_key=openai_api_key, query_graph_func=query_graph, chain=chain
+    )
