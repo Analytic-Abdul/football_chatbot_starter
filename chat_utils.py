@@ -17,7 +17,7 @@ def display_chat_history():
             st.markdown(message["content"])
 
 
-def handle_user_input(openai_api_key, query_graph_func):
+def handle_user_input(openai_api_key, query_graph_func, chain):
     if prompt := st.chat_input("Your question..."):
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user"):
@@ -25,7 +25,7 @@ def handle_user_input(openai_api_key, query_graph_func):
 
         if openai_api_key:
             with st.spinner("Thinking..."):
-                response = query_graph_func(prompt)
+                response = query_graph_func(chain=chain, query=prompt)
 
             with st.chat_message("assistant"):
                 st.markdown(response)

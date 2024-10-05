@@ -1,10 +1,6 @@
 import streamlit as st
-from config import load_secrets
 from graph_utils import init_resources, query_graph
 from chat_utils import initialize_chat_history, display_chat_history, handle_user_input
-
-# Load secrets
-load_secrets()
 
 st.title("Football Memoirs - an AI for Hardcore Football Fans")
 
@@ -19,9 +15,9 @@ if openai_api_key:
         graph, chain = init_resources(openai_api_key)
         st.success("Resources initialized successfully!", icon="🚀")
 
-# Initialize and display chat history
-initialize_chat_history()
-display_chat_history()
+    # Initialize and display chat history
+    initialize_chat_history()
+    display_chat_history()
 
-# Handle user input
-handle_user_input(openai_api_key, query_graph)
+    # Handle user input
+    handle_user_input(openai_api_key, query_graph, chain)

@@ -24,7 +24,6 @@ def init_resources(api_key):
     return graph, chain
 
 
-@st.cache_data(ttl=3600, show_spinner=False)  # Cache for 1 hour
 def query_graph(chain, query):
     try:
         result = chain.invoke({"query": query})["result"]
