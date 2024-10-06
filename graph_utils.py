@@ -15,7 +15,7 @@ def init_resources(api_key):
     graph.refresh_schema()
 
     chain = GraphCypherQAChain.from_llm(
-        ChatOpenAI(api_key=api_key, model="gpt-4", temperature=0),
+        ChatOpenAI(api_key=api_key, model="gpt-4o"),
         graph=graph,
         verbose=True,
         show_intermediate_steps=True,
@@ -25,9 +25,5 @@ def init_resources(api_key):
 
 
 def query_graph(chain, query):
-    try:
-        result = chain.invoke({"query": query})["result"]
-        return result
-    except Exception as e:
-        st.error(f"An error occurred: {str(e)}")
-        return "I'm sorry, I encountered an error while processing your request."
+    result = chain.invoke({"query": query})["result"]
+    return result

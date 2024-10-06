@@ -1,6 +1,6 @@
 # Football Memoirs - AI for Hardcore Football Fans
 
-This Streamlit app uses a Neo4j graph database and OpenAI's GPT model to answer questions about international football history from 1872 to the present day.
+This Streamlit app uses a Neo4j graph database and OpenAI's GPT-4o model to answer questions about international football history from 1872 to the present day.
 
 ## Setup
 
@@ -21,5 +21,3 @@ To deploy this app on Streamlit Cloud:
 3. Create a new app in Streamlit Cloud and select your repository
 4. Add your secrets in the Streamlit Cloud dashboard under the "Secrets" section
 5. Deploy your app
-
-Note: Make sure not to commit your `.streamlit/secrets.toml` file to version control.

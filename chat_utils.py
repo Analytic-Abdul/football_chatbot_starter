@@ -25,7 +25,11 @@ def handle_user_input(openai_api_key, query_graph_func, chain):
 
         if openai_api_key:
             with st.spinner("Thinking..."):
-                response = query_graph_func(chain=chain, query=prompt)
+                try:
+                    response = query_graph_func(chain=chain, query=prompt)
+                except Exception as e:
+                    st.error(f"An error occurred: {str(e)}")
+                    response = "I'm sorry, I encountered an error while processing your request."
 
             with st.chat_message("assistant"):
                 st.markdown(response)
